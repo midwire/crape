@@ -4,9 +4,9 @@ require File.expand_path('../lib/crape/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Chris Blackburn"]
   gem.email         = ["chris@midwiretech.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Craigslist Scrape (Crape) will search Craigslist for a set of keywords, print out the results and optionally send an email or text message for each item found}
+  gem.summary       = %q{Search Craigslist for stuff and notify over SMS}
+  gem.homepage      = "https://github.com/midwire/crape"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
