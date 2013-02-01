@@ -11,6 +11,10 @@ require File.join(File.dirname(__FILE__), '..', 'lib', 'crape')
 
 PROJECT_ROOT = File.expand_path('..', File.dirname(__FILE__))
 
+Mail.defaults do
+  delivery_method :test
+end
+
 RSpec.configure do |config|
   config.mock_with :rspec
   config.color_enabled = true

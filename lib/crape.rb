@@ -13,3 +13,7 @@ require 'midwire_common/string'
 require "crape/version"
 require "crape/config_store"
 require "crape/scraper"
+
+Mail.defaults do
+  delivery_method :sendmail
+end

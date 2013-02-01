@@ -50,13 +50,10 @@ module Craigslist
     def notify(text)
       log.info("notify: #{text}")
       puts(">>> sending sms to #{@config['mail']['to']}") if @options[:verbose]
-      mail = Mail.new do
-        from     @config['mail']['from']
-        to       @config['mail']['to']
-        subject  @config['mail']['subject']
-        body     text
-      end
-      mail.delivery_method :sendmail
+      mail = Mail.new
+      mail.to = @config['mail']['to'].to_s
+      mail.from = @config['mail']['from'].to_s
+      mail.body = text
       mail.deliver!
     end
 

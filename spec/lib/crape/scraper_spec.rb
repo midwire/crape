@@ -27,4 +27,9 @@ describe Craigslist::Scraper do
     scraper.get_last_runtime(QUERY).should == Time.parse(data[CATEGORY][QUERY]['last_runtime'])
   end
 
+  it "sends SMS notifications through email" do
+    Mail::TestMailer.deliveries.should be_empty
+    scraper.notify("this is a test")
+    Mail::TestMailer.deliveries.should_not be_empty
+  end
 end
