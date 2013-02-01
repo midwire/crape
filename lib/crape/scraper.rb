@@ -63,17 +63,17 @@ module Craigslist
       Craigler.search(@options[:category], :in => @options[:in], :for => query) do |item|
         if item[:published_at] > get_last_runtime(query)
           @item_count += 1
-          formatted_msg = <<-stop.here_with_pipe(true)
-            |┃#{item[:title].yellow.bold}
-            |┃#{item[:url].blue.bold.underline}
-            |╰#{'━'*60}┫#{item[:published_at].strftime("%D, %a @%R")}
-          stop
           raw_msg = <<-stop.here_with_pipe(true)
             |#{item[:title]}
             |> #{item[:url]}
             |> #{item[:published_at].strftime("%D, %a @%R")}
           stop
           if @options[:color]
+            formatted_msg = <<-stop.here_with_pipe(true)
+              |┃#{item[:title].yellow.bold}
+              |┃#{item[:url].blue.bold.underline}
+              |╰#{'━'*60}┫#{item[:published_at].strftime("%D, %a @%R")}
+            stop
             puts(formatted_msg)
           else
             puts(raw_msg)
